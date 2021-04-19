@@ -34,12 +34,12 @@ X_test = data.iloc[307508:]
 scaler = StandardScaler()
 # # X_train = pd.DataFrame(scaler.fit_transform(X_fill), columns= X.columns)
 # # X_test = pd.DataFrame(scaler.transform(X_t), columns= test.columns)
-# X_train = scaler.fit_transform(X)
-# X_s = scaler.transform(X_test)
+X_train = scaler.fit_transform(X)
+X_s = scaler.transform(X_test)
 
-# M = np.concatenate((X_train, X_s))
+M = np.concatenate((X_train, X_s))
 
-model = pickle.load(open('model.pkl', 'rb'))
+# model = pickle.load(open('model.pkl', 'rb'))
 
 # y_pred = model.predict_proba(M)
 
