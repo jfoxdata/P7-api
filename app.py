@@ -27,11 +27,11 @@ app=Flask(__name__)
 data = pd.read_csv('data1.csv', index_col=0)
 
 
-X = data.iloc[:307507]
-X_test = data.iloc[307508:]
+# X = data.iloc[:307507]
+# X_test = data.iloc[307508:]
 
-scaler = StandardScaler()
-scaler.fit(X)
+# scaler = StandardScaler()
+# scaler.fit(X)
 # X_s = scaler.transform(data)
 
 # M = X_s
@@ -39,7 +39,7 @@ scaler.fit(X)
 model = pickle.load(open('model.pkl', 'rb'))
 
 # y_pred = model.predict_proba(M)
-
+y_pred = model.predict_proba(data)
 @app.route('/')
 @cross_origin()
 def home():
