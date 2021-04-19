@@ -3,7 +3,7 @@ from flask_cors import cross_origin
 import pandas as pd
 import numpy as np
 
-from sklearn.preprocessing import StandardScaler
+
 
 # Kernel de Kaggle disponible sur https://www.kaggle.com/jsaguiar/lightgbm-with-simple-features
 # from lightgbm_with_simple_features import *
@@ -15,7 +15,7 @@ from sklearn.preprocessing import StandardScaler
 import pickle
 import re
 
-
+from sklearn.preprocessing import StandardScaler
 
 
 
@@ -30,10 +30,7 @@ data = pd.read_csv('data1.csv', index_col=0)
 X = data.iloc[:307507]
 X_test = data.iloc[307508:]
 
-
 scaler = StandardScaler()
-# # X_train = pd.DataFrame(scaler.fit_transform(X_fill), columns= X.columns)
-# # X_test = pd.DataFrame(scaler.transform(X_t), columns= test.columns)
 X_train = scaler.fit_transform(X)
 X_s = scaler.transform(X_test)
 
