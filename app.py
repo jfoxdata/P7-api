@@ -48,24 +48,18 @@ app=Flask(__name__)
 def home():
     return render_template('index.html')
 
-# @app.route('/predict', methods=['POST', 'GET'])
-# # def predict():
+@app.route('/predict', methods=['POST', 'GET'])
+@cross_origin()
+def predict():
+    features = [int(x) for x in request.form.values()]
+#     final_features = M.iloc[features]
+#     prediction = model.predict_proba(final_features)
+    prediction = y_pred[features]
 
-# # 	client = NumberInput(min=0, max=len(train_test))
-# # 	prediction = model.predict_proba(client)
-# # 	return render_template('index.html', prediction_text='Your Rating is: {}'.format(predict))
+    output = prediction
 
-# def predict():
-#     features = [int(x) for x in request.form.values()]
-# #     final_features = M.iloc[features]
-# #     prediction = model.predict_proba(final_features)
-#     prediction = y_pred[features]
-
-#     output = prediction
-
-#     return render_template('index.html', prediction_text='Your Rating is: {}'.format(output))
+    return render_template('index.html', prediction_text='Your Rating is: {}'.format(output))
 
 if __name__=='__main__':
-    app.run()
-#     app.run(debug=True)
+    app.run(debug=True)
 #	app.run(host='0.0.0.0', port=8080)
