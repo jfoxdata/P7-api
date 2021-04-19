@@ -24,8 +24,8 @@ from sklearn.preprocessing import StandardScaler
 
 app=Flask(__name__)
 
-data = pd.read_csv('data1.csv', index_col=0)
-
+# data = pd.read_csv('data1.csv', index_col=0)
+data = pd.read_csv('sample.csv', index_col=0)
 
 # X = data.iloc[:307507]
 # X_test = data.iloc[307508:]
