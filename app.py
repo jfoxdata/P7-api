@@ -33,7 +33,7 @@ scaler = StandardScaler()
 # X_test = pd.DataFrame(scaler.transform(X_t), columns= test.columns)
 X_train = scaler.fit(X)
 
-M = scaler.transform(data)
+M = scaler.transform(data).sample(frac=0.05)
 
 model = pickle.load(open('model.pkl', 'rb'))
 
