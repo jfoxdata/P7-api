@@ -1,3 +1,5 @@
+from flask import Flask, request, jsonify, render_template
+from flask_cors import cross_origin
 import pandas as pd
 import numpy as np
 
@@ -13,7 +15,7 @@ from sklearn.preprocessing import StandardScaler
 import pickle
 import re
 
-from flask import Flask, request, jsonify, render_template
+
 
 
 
@@ -42,6 +44,7 @@ app=Flask(__name__)
 # y_pred = model.predict_proba(M)
 
 @app.route('/')
+@cross_origin()
 def home():
     return render_template('index.html')
 
