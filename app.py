@@ -26,14 +26,16 @@ data = pd.read_csv('data1.csv', index_col=0)
 
 
 X = data.iloc[:307507]
+X_test = data.iloc[307508:]
 
 
 scaler = StandardScaler()
 # X_train = pd.DataFrame(scaler.fit_transform(X_fill), columns= X.columns)
 # X_test = pd.DataFrame(scaler.transform(X_t), columns= test.columns)
-X_train = scaler.fit(X)
+X_train = scaler.fit_transform(X)
+X_s = scaler.transform(X_test)
 
-M = scaler.transform(data)
+M = np.concatenate((X_train, X_s))
 
 model = pickle.load(open('model.pkl', 'rb'))
 
