@@ -36,7 +36,7 @@ model = LGBMClassifier(max_depth=24, n_estimators=836, num_leaves=23,
 
 model.fit(X_train, y)
 y_pred = model.predict_proba(X_train)
-from pickle
+import pickle
 pickle.dump(model, open('model.pkl', 'wb'))
 model = pickle.load(open('model.pkl', 'rb'))
 print(y_pred)
