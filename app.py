@@ -12,7 +12,7 @@ from sklearn.preprocessing import StandardScaler
 # from sklearn.metrics import confusion_matrix
 
 
-import joblib
+import pickle
 import re
 
 
@@ -39,7 +39,7 @@ scaler = StandardScaler()
 
 # M = np.concatenate((X_train, X_s))
 
-model = joblib.load(open('model.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
 # y_pred = model.predict_proba(M)
 
