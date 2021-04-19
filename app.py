@@ -30,8 +30,8 @@ data = pd.read_csv('data1.csv', index_col=0)
 X = data.iloc[:307507]
 X_test = data.iloc[307508:]
 
-# scaler = StandardScaler()
-# scaler.fit(X)
+scaler = StandardScaler()
+scaler.fit(X)
 # X_s = scaler.transform(data)
 
 # M = X_s
