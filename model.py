@@ -6,7 +6,7 @@ from lightgbm_with_simple_features import *
 import lightgbm
 from lightgbm import LGBMClassifier
 
-import pickle
+# import pickle
 import re
 
 train_test = application_train_test(num_rows = None, nan_as_category = False)
@@ -36,7 +36,9 @@ model = LGBMClassifier(max_depth=24, n_estimators=836, num_leaves=23,
 
 model.fit(X_train, y)
 y_pred = model.predict_proba(X_train)
-
-pickle.dump(model, open('model.pkl', 'wb'))
-model = pickle.load(open('model.pkl', 'rb'))
+from joblib import dump, load
+dump(model, 'model.pkl')
+model = load('model.pkl')
+# pickle.dump(model, open('model.pkl', 'wb'))
+# model = pickle.load(open('model.pkl', 'rb'))
 print(y_pred)
