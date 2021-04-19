@@ -23,3 +23,4 @@ threadpoolctl==2.1.0
 touch==2020.12.3
 values==2020.12.3
 Werkzeug==1.0.1
+Flask-Cors==3.0.8
