@@ -24,24 +24,24 @@ import re
 
 app=Flask(__name__)
 
-# data = pd.read_csv('data1.csv', index_col=0)
+data = pd.read_csv('data1.csv', index_col=0)
 
 
-# X = data.iloc[:307507]
-# X_test = data.iloc[307508:]
+X = data.iloc[:307507]
+X_test = data.iloc[307508:]
 
 
-# scaler = StandardScaler()
-# # X_train = pd.DataFrame(scaler.fit_transform(X_fill), columns= X.columns)
-# # X_test = pd.DataFrame(scaler.transform(X_t), columns= test.columns)
-# X_train = scaler.fit_transform(X)
-# X_s = scaler.transform(X_test)
+scaler = StandardScaler()
+# X_train = pd.DataFrame(scaler.fit_transform(X_fill), columns= X.columns)
+# X_test = pd.DataFrame(scaler.transform(X_t), columns= test.columns)
+X_train = scaler.fit_transform(X)
+X_s = scaler.transform(X_test)
 
-# M = np.concatenate((X_train, X_s))
+M = np.concatenate((X_train, X_s))
 
-# model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
-# y_pred = model.predict_proba(M)
+y_pred = model.predict_proba(M)
 
 @app.route('/')
 @cross_origin()
