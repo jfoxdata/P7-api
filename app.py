@@ -17,6 +17,11 @@ from flask import Flask, request, jsonify, render_template
 
 
 
+
+
+
+app=Flask(__name__)
+
 data = pd.read_csv('data1.csv', index_col=0)
 
 
@@ -30,8 +35,6 @@ X_train = scaler.fit(X)
 
 M = scaler.transform(data)
 
-
-app=Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
 
 y_pred = model.predict_proba(M)
