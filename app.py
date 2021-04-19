@@ -31,7 +31,7 @@ X = data.iloc[:307507]
 X_test = data.iloc[307508:]
 
 
-# scaler = StandardScaler()
+scaler = StandardScaler()
 # # X_train = pd.DataFrame(scaler.fit_transform(X_fill), columns= X.columns)
 # # X_test = pd.DataFrame(scaler.transform(X_t), columns= test.columns)
 # X_train = scaler.fit_transform(X)
