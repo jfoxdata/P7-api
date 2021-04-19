@@ -39,7 +39,7 @@ scaler = StandardScaler()
 
 # M = np.concatenate((X_train, X_s))
 
-model = pickle.load(open('model.pkl', 'rb'))
+# model = pickle.load(open('model.pkl', 'rb'))
 
 # y_pred = model.predict_proba(M)
 
