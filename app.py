@@ -24,19 +24,19 @@ from sklearn.preprocessing import StandardScaler
 
 app=Flask(__name__)
 
-data = pd.read_csv('data1.csv', index_col=0)
+# data = pd.read_csv('data1.csv', index_col=0)
 
 
-X = data.iloc[:307507]
-X_test = data.iloc[307508:]
+# X = data.iloc[:307507]
+# X_test = data.iloc[307508:]
 
-scaler = StandardScaler()
-scaler.fit(X)
-X_s = scaler.transform(data)
+# scaler = StandardScaler()
+# scaler.fit(X)
+# X_s = scaler.transform(data)
 
-M = X_s
+# M = X_s
 
-# model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
 # y_pred = model.predict_proba(M)
 
