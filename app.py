@@ -39,7 +39,7 @@ data = pd.read_csv('data1.csv', index_col=0)
 model = pickle.load(open('model.pkl', 'rb'))
 
 # y_pred = model.predict_proba(M)
-y_pred = model.predict_proba(data)
+# y_pred = model.predict_proba(data)
 @app.route('/')
 @cross_origin()
 def home():
@@ -50,10 +50,11 @@ def home():
 def predict():
     features = [int(x) for x in request.form.values()]
 #     final_features = M.iloc[features]
+    prediction = model.predict_proba(data)
 #     prediction = model.predict_proba(final_features)
-    prediction = y_pred[features]
+#     prediction = y_pred[features]
 
-    output = prediction
+    output = prediction[features]
 
     return render_template('index.html', prediction_text='Your Rating is: {}'.format(output))
 
