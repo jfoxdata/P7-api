@@ -17,21 +17,18 @@ from flask import Flask, request, jsonify, render_template
 
 
 
-data = pd.read_csv('data1.csv')
+data = pd.read_csv('data1.csv', index_col=0)
 
 
-X = train.drop(columns=['TARGET']) 
-y = train['TARGET']
-
+X = data.iloc[:307507]
 
 
 scaler = StandardScaler()
 # X_train = pd.DataFrame(scaler.fit_transform(X_fill), columns= X.columns)
 # X_test = pd.DataFrame(scaler.transform(X_t), columns= test.columns)
-X_train = scaler.fit_transform(X_fill)
-X_test = scaler.transform(X_t)
+X_train = scaler.fit(X)
 
-M = pd.concat([X_train, X_test], axis=0)
+M = scaler.transform(data)
 
 
 app=Flask(__name__)
