@@ -31,10 +31,10 @@ X = data.iloc[:307507]
 X_test = data.iloc[307508:]
 
 scaler = StandardScaler()
-X_train = scaler.fit_transform(X)
-X_s = scaler.transform(X_test)
+scaler.fit(X)
+X_s = scaler.transform(data)
 
-M = np.concatenate((X_train, X_s))
+M = X_s
 
 # model = pickle.load(open('model.pkl', 'rb'))
 
