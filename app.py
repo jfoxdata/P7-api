@@ -15,7 +15,6 @@ import numpy as np
 import pickle
 import re
 
-from sklearn.preprocessing import StandardScaler
 
 
 
@@ -24,22 +23,16 @@ from sklearn.preprocessing import StandardScaler
 
 app=Flask(__name__)
 
-# data = pd.read_csv('data1.csv', index_col=0)
+
 data = pd.read_csv('sample.csv', index_col=0)
 
-# X = data.iloc[:307507]
-# X_test = data.iloc[307508:]
 
-scaler = StandardScaler()
-M = scaler.fit_transform(data)
-# X_s = scaler.transform(data)
 
-# M = X_s
-
+scaler = pickle.load(open('scaler.pkl', 'rb'))
 model = pickle.load(open('model.pkl', 'rb'))
 
-# y_pred = model.predict_proba(M)
-# y_pred = model.predict_proba(data)
+M = scaler.transform(data)
+
 @app.route('/')
 @cross_origin()
 def home():
