@@ -30,8 +30,8 @@ data = pd.read_csv('sample.csv', index_col=0)
 # X = data.iloc[:307507]
 # X_test = data.iloc[307508:]
 
-# scaler = StandardScaler()
-# scaler.fit(X)
+scaler = StandardScaler()
+M = scaler.fit_transform(data)
 # X_s = scaler.transform(data)
 
 # M = X_s
@@ -50,7 +50,8 @@ def home():
 def predict():
     features = [int(x) for x in request.form.values()]
 #     final_features = M.iloc[features]
-    prediction = model.predict_proba(data)
+#     prediction = model.predict_proba(data)
+    prediction = model.predict_proba(M)
 #     prediction = model.predict_proba(final_features)
 #     prediction = y_pred[features]
 
